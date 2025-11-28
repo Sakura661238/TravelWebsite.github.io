@@ -1,7 +1,6 @@
 ﻿using Assignment2_TravelWebsite.Models;
 using System.Linq;
 using System.Web.Mvc;
-using Assignment2_TravelWebsite.Models;
 
 namespace Assignment2_TravelWebsite.Controllers
 {
