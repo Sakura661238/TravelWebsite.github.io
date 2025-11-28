@@ -1,0 +1,106 @@
+﻿@using Assignment2_TravelWebsite.Models
+@using System.Linq
+@{
+    ViewBag.Title = "My collection - Tourist attractions website";
+    // Converts the dynamic ViewBag.FavoriteDests to a strongly typed list
+    var favoriteDests = ViewBag.FavoriteDests as List<Destination> ?? new List<Destination>();
+}
+
+<!-- Favorite page header -->
+<div class="favorites-header">
+    <h1>My Collection</h1>
+    <div class="favorites-count">共 @(ViewBag.FavoriteDests?.Count ?? 0) places to collect</div>
+</div>
+
+<!-- Control Bar (Sort + Clear) -->
+<div class="favorites-controls">
+    <!-- Options for sorting -->
+    <div class="sort-options">
+        <label>Sort by:</label>
+        <select id="sort-favorites" onchange="window.location.href='@Url.Action("Index", "Favorites")?sortBy=' + this.value">
+            <option value="date" @(ViewBag.SortBy == "date" ? "selected" : "")>By collection time</option>
+            <option value="rating" @(ViewBag.SortBy == "rating" ? "selected" : "")>By score</option>
+            <option value="name" @(ViewBag.SortBy == "name" ? "selected" : "")>By name</option>
+        </select>
+    </div>
+
+    <!-- Clear the favorites button -->
+    <button id="clear-all" class="clear-btn" onclick="if(confirm('Are you sure you want to empty your entire collection?')) window.location.href='@Url.Action("ClearAll", "Favorites")'">
+        Clear out the collection
+    </button>
+</div>
+
+<!-- Collection attractions grid -->
+<div id="favorites-container" class="favorites-grid">
+    @if (favoriteDests.Count > 0)
+    {
+        foreach (var dest in favoriteDests)
+        {
+            // Get the collection time (read from Session)
+            var favoriteTime = Session[$"FavoriteTime_{dest.Id}"] as DateTime? ?? DateTime.Now;
+            var timeAgo = GetTimeAgo(favoriteTime); // Call the following method to format the time
+
+            <div class="favorite-card" data-id="@dest.Id">
+                <!-- Under strong typing, Split() returns string[], and Last() can be called normally -->
+                <img src="~/Content/Images/@dest.ListImage.Split('/').Last()" alt="@dest.Name">
+                <div class="favorite-card-content">
+                    <h3><a href="@Url.Action("Detail", "Destination", new { id = dest.Id })">@dest.Name</a></h3>
+                    <div class="region">@dest.Region</div>
+                    <div class="type">@string.Join(" / ", dest.Type)</div>
+                    <div class="rating">★★★★★ @dest.Rating</div>
+                    <div class="favorite-time">Collected at:@timeAgo</div>
+                    <div class="favorite-card-actions">
+                        <a href="@Url.Action("Detail", "Destination", new { id = dest.Id })" class="view-detail">View Details</a>
+                        <button class="remove-favorite" onclick="removeFromFavorite(@dest.Id)" title="Cancel a collection">★</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <!-- The empty state -->
+        <div class="empty-state show">
+            <div class="empty-icon">⭐</div>
+            <h2>No collection attractions</h2>
+            <p>Go explore the sights and add your favorites to your collection～</p>
+            <a href="@Url.Action("Index", "Destination")" class="explore-btn">Explore the sights</a>
+        </div>
+    }
+</div>
+
+<!-- Bookmark page exclusive JS -->
+@section Scripts {
+    <script>
+        // Unfavorite (AJAX call interface)
+        function removeFromFavorite(destId) {
+            $.ajax({
+                url: "@Url.Action("RemoveFromFavorite", "Favorites")",
+                type: "GET",
+                data: { destId: destId },
+                success: function (res) {
+                    alert(res.msg);
+                    if (res.success) {
+                        window.location.reload(); // Refresh the page
+                    }
+                },
+                error: function () {
+                    alert('Failed to unbookmark. Please try again later');
+                }
+            });
+        }
+
+        // Time formatting (back-end method, also implemented in front-end JS)
+        @functions {
+            public string GetTimeAgo(DateTime time)
+            {
+                var diff = DateTime.Now - time;
+                if (diff.TotalMinutes < 1) return "Just now";
+                if (diff.TotalHours < 1) return $"{(int)diff.TotalMinutes}minutes ago";
+                if (diff.TotalDays < 1) return $"{(int)diff.TotalHours}hours ago";
+                if (diff.TotalDays < 7) return $"{(int)diff.TotalDays}days ago";
+                return time.ToString("yyyy-MM-dd");
+            }
+        }
+    </script>
+}

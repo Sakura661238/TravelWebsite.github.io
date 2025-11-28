@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "About Us";
+    ViewBag.Message = "Our Story & Vision";
+}
+
+<!-- Introducing common styles -->
+<link rel="stylesheet" href="~/Content/common.css">
+
+<main class="about-page" aria-labelledby="page-title">
+    <!-- Page header banner -->
+    <div class="about-banner">
+        <div class="banner-overlay">
+            <h1 id="page-title" class="banner-title">@ViewBag.Title</h1>
+            <p class="banner-subtitle">@ViewBag.Message</p>
+        </div>
+    </div>
+
+    <!-- The Brand Story -->
+    <section class="about-story section-padding">
+        <div class="container">
+            <div class="story-content">
+                <h2 class="section-title">Our Journey</h2>
+                <p class="story-text">
+                    Founded in 2020, our travel platform was born from a simple belief: travel should be accessible, authentic, and unforgettable.
+                    What started as a small blog sharing hidden travel gems has grown into a trusted guide for adventurers worldwide.
+                </p>
+                <p class="story-text">
+                    Our team of travel enthusiasts, photographers, and cultural experts have explored over 30 countries,
+                    handpicking destinations that blend natural beauty, rich history, and local charm. We skip the tourist traps
+                    and focus on experiences that let you connect with places on a deeper level.
+                </p>
+            </div>
+            <div class="story-image">
+                <img src="~/Content/Images/about-story.jpg" alt="Our team exploring a mountain village" class="img-responsive">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="about-mission section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="icon-compass"></i> <!-- 可替换为实际图标 -->
+                    </div>
+                    <h3>Mission</h3>
+                    <p>
+                        To inspire and empower travelers to discover the world with curiosity, respect, and a sense of adventure.
+                        We aim to simplify travel planning while promoting responsible, sustainable exploration.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="icon-globe"></i> <!-- 可替换为实际图标 -->
+                    </div>
+                    <h3>Vision</h3>
+                    <p>
+                        To become the most trusted travel companion—bridging cultures, preserving traditions,
+                        and making every journey meaningful for both travelers and the communities they visit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features of Service -->
+    <section class="about-features section-padding">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="~/Content/Images/feature-1.jpg" alt="Curated destinations" class="feature-img">
+                    <h3>Curated Destinations</h3>
+                    <p>Handpicked spots across 8+ categories, from historical sites to adventure hubs, with detailed guides.</p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="~/Content/Images/feature-2.jpg" alt="Local insights" class="feature-img">
+                    <h3>Local Insights</h3>
+                    <p>Authentic tips from locals: hidden cafes, seasonal events, and cultural etiquette you won’t find in guidebooks.</p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="~/Content/Images/feature-3.jpg" alt="Travel tools" class="feature-img">
+                    <h3>Smart Tools</h3>
+                    <p>Filters, region explorers, and rating systems to tailor your search to your budget and interests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction to the Team -->
+    <section class="about-team section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="team-intro">Passionate travelers with a shared love for storytelling and exploration</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="~/Content/Images/team-1.jpg" alt="Sarah Johnson" class="member-img">
+                    <h3>Sarah Johnson</h3>
+                    <p class="member-role">Founder & CEO</p>
+                    <p>Former backpacker turned travel strategist, visited 45+ countries.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="~/Content/Images/team-2.jpg" alt="Marco Rossi" class="member-img">
+                    <h3>Marco Rossi</h3>
+                    <p class="member-role">Lead Photographer</p>
+                    <p>Specializes in capturing the soul of landscapes and local life.</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="~/Content/Images/team-3.jpg" alt="Aisha Patel" class="member-img">
+                    <h3>Aisha Patel</h3>
+                    <p class="member-role">Cultural Expert</p>
+                    <p>Anthropologist focusing on preserving indigenous traditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call for Contact -->
+    <section class="about-cta section-padding">
+        <div class="container cta-content">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Whether you need travel tips or want to share your own story, we’d love to hear from you.</p>
+            <a href="@Url.Action("Contact", "Home")" class="btn-primary">Get In Touch</a>
+        </div>
+    </section>
+</main>

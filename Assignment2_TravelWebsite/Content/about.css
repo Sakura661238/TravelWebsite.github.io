@@ -1,0 +1,241 @@
+﻿﻿:root {
+    --bg-light: #f9f9f9;
+    --brand: #3498db;
+    --brand-dark: #2980b9;
+    --text: #333;
+    --muted: #666;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --container-max: 1200px;
+    --gutter: 1.5rem;
+}
+
+/* Basic layout */
+.about-page {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.section-padding {
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* Titles */
+.section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Banner */
+.about-banner {
+    height: 50vh;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("/Content/Images/about-banner.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-overlay {
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.banner-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.banner-subtitle {
+    font-size: 1.1rem;
+    max-width: 680px;
+    opacity: 0.95;
+}
+
+/* Brand story: Use smaller selectors and improve reusability */
+.about-story .container,
+.about-mission .container,
+.about-features .container,
+.about-team .container {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.about-story .container {
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    align-items: center;
+}
+
+.story-text {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    display: block;
+    object-fit: cover;
+}
+
+/* Common card styles */
+.card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+}
+
+.mission-grid,
+.features-grid,
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 1.5rem;
+}
+
+/* Mission / feature / team specifics */
+.mission-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.mission-icon {
+    font-size: 2.2rem;
+    color: var(--brand);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card {
+    overflow: hidden;
+}
+
+.feature-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    color: #2c3e50;
+}
+
+.feature-card p {
+    padding: 0 1rem 1rem;
+    color: var(--muted);
+}
+
+.team-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    color: var(--muted);
+    font-size: 1.03rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.member-role {
+    color: var(--brand);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA */
+.about-cta {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.about-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-cta p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--brand);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color .18s ease;
+}
+
+    .btn-primary:hover {
+        background-color: var(--brand-dark);
+    }
+
+/* Common responsive adjustments */
+@media (max-width:992px) {
+    .banner-title {
+        font-size: 2.4rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .member-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width:768px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .about-banner {
+        height: 40vh;
+    }
+
+    .cta-content {
+        padding: 2rem 1rem;
+    }
+}

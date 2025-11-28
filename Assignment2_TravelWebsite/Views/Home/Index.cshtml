@@ -1,0 +1,75 @@
+﻿@using Assignment2_TravelWebsite.Models
+@using System.Linq
+@{
+    ViewBag.Title = "Home Page - Tourist Attractions Website"; // Page title, which will be displayed in the browser tab
+}
+
+<!-- Carousel Banner -->
+<div class="banner">
+    <div class="banner-slide active">
+        <img src="~/Content/Images/banner1.jpg" alt="TravelBanner1">
+        <div class="banner-text">Explore the world's famous attractions</div>
+    </div>
+    <div class="banner-slide">
+        <img src="~/Content/Images/banner2.jpg" alt="TravelBanner2">
+        <div class="banner-text">Discovering the natural and cultural wonders of the world</div>
+    </div>
+    <div class="banner-slide">
+        <img src="~/Content/Images/banner3.jpg" alt="TravelBanner3">
+        <div class="banner-text">Discover the beauty of the world</div>
+    </div>
+    <button class="carousel-btn prev-btn">←</button>
+    <button class="carousel-btn next-btn">→</button>
+    <div class="carousel-indicators">
+        <button class="indicator active"></button>
+        <button class="indicator"></button>
+        <button class="indicator"></button>
+    </div>
+</div>
+
+<!-- Recommended scenic area (dynamic rendering) -->
+<section class="recommended-destinations">
+    <h2>Selected Recommended Attractions</h2>
+    <div class="destinations-grid">
+        @{
+            // Key point: Convert the dynamic ViewBag.RecommendedDests to a strongly-typed List<Destination>
+            var recommendedDests = ViewBag.RecommendedDests as List<Destination> ?? new List<Destination>();
+        }
+        @foreach (var dest in recommendedDests)
+        {
+            <!-- Attraction Card -->
+            <div class="dest-card">
+                <!-- In strong typing, Split() returns a string array, and the Last() method can be called normally. -->
+                <img src="~/Content/Images/@dest.ListImage.Split('/').Last()" alt="@dest.Name">
+                <h3>@dest.Name</h3>
+                <div class="rating">★★★★★ @dest.Rating</div>
+                <a href="@Url.Action("Detail", "Destination", new { id = dest.Id })" class="view-detail">View Details</a>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Regional Entrance (Dynamic Rendering) -->
+<section class="region-entrance">
+    <h2>Explore by region</h2>
+    <div class="regions">
+        @{
+            // The regional collection has also been transformed into a strong type.
+            var displayRegions = ViewBag.DisplayRegions as List<Region> ?? new List<Region>();
+        }
+        @foreach (var region in displayRegions)
+        {
+            <a href="@Url.Action("Index", "Destination", new { region = region.Name })" class="region-item">
+                <img src="~/Content/Images/@region.ImagePath.Split('/').Last()" alt="@region.Name">
+                <span>@region.Name</span>
+            </a>
+        }
+    </div>
+</section>
+
+<!-- Homepage-specific JavaScript -->
+@section Scripts {
+    <script>
+
+    </script>
+}

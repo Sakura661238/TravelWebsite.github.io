@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "List of attractions - Tourist attractions";
+}
+
+<!-- Pure front-end filter bar (no form submitted) -->
+<div class="filter-bar">
+    <div class="filter-group">
+        <label>Choose a region</label>
+        <select id="region-filter" name="region">
+            <option value="">All the regions</option>
+            <!-- The front-end is populated with locale options -->
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label>Select the type</label>
+        <div class="checkbox-group">
+            <!-- Fill the type check box by the front end -->
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <label>Search for attractions</label>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search for a name/description..." />
+            <button type="button" id="search-btn" class="search-btn">Search</button>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <label>Mode of sorting</label>
+        <button id="sort-rating" class="sort-btn">Sort by rating (from highest to lowest)</button>
+    </div>
+</div>
+
+<!-- List container: rendered by the front end -->
+<div class="destinations-list">
+    <!-- list.js fills the contents -->
+</div>
+
+<!-- Paging container: rendered by the front end -->
+<div class="pagination"></div>
+
+@section Scripts {
+    <script src="~/Scripts/list.js"></script>
+}

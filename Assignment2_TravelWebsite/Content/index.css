@@ -1,0 +1,381 @@
+﻿/* Carousel Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide overflow */
+    margin-bottom: 2rem;
+}
+
+.banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Occupies the full width of the container, facilitating the positioning of the buttons on both sides of the image. */
+    height: 200px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin: 0;
+}
+
+    .banner-slide.active {
+        opacity: 1;
+        position: relative;
+    }
+
+    .banner-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Image adapts with cropping */
+    }
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center alignment */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Text shadow */
+    text-align: center;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centered */
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    z-index: 30; /* Make sure to place it above the picture and the indicator. */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    pointer-events: auto;
+}
+
+    .carousel-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-btn:active {
+        transform: translateY(-50%) scale(0.98);
+    }
+
+    .carousel-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: #333; /* Use "fill" to more reliably control the color of SVG elements */
+    }
+
+/* The offset of the left and right buttons from the left and right edges of the carousel */
+.prev-btn {
+    left: 16px;
+}
+
+.next-btn {
+    right: 16px;
+}
+
+/* Indicators: Display centered below the carousel images. */
+.carousel-indicators {
+    position: absolute;
+    bottom: 14px; /* 14px below the picture */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 8px;
+    z-index: 25; 
+    pointer-events: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Individual dot style */
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: inline-block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+    .indicator.active {
+        background: white;
+        transform: scale(1.2);
+    }
+
+    .indicator:hover {
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+/* Responsive: Slightly shrink the buttons on smaller screens and narrow the spacing on the left and right sides. */
+@media (max-width: 768px) {
+    .banner-slide {
+        height: 180px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+        .carousel-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+    .prev-btn {
+        left: 8px;
+    }
+
+    .next-btn {
+        right: 8px;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
+        gap: 6px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Recommended attractions area */
+.recommended-destinations {
+    padding: 1rem 0;
+}
+
+    .recommended-destinations h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+    }
+
+/* Attraction card grid */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Multi-column adaptive */
+    gap: 1.5rem; /* Spacing between cards */
+}
+
+/* Attraction card - Horizontal layout: Picture on the left, content on the right */
+.dest-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* Crop image corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease; /* Hover scale effect */
+    display: flex;
+    flex-direction: row;
+    min-height: 180px;
+}
+
+    .dest-card:hover {
+        transform: translateY(-6px); /* Slight upward movement */
+    }
+
+    /* Image area */
+    .dest-card img {
+        width: 36%; 
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+/* Content area (on the right side) */
+.dest-card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+/* Title and rating are on the same line (title on the left, rating on the right) */
+.dest-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+/* Title: Appropriately Reduce, Control Line Breaks and Line Heights */
+.dest-card h3 {
+    margin: 0;
+    font-size: 1.05rem; /* Reduce the font size to avoid line breaks. */
+    color: #2c3e50;
+    line-height: 1.15;
+    max-width: 65%; 
+    word-break: break-word;
+}
+
+/* Scoring Area: The asterisk and the numerical value are placed side by side and aligned to the right. */
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    color: #f39c12; /* Star rating color */
+    font-size: 0.95rem;
+    min-width: 60px;
+}
+
+.rating .stars {
+        font-size: 0.95rem;
+        line-height: 1;
+}
+
+.rating .value {
+        color: #e67e22;
+        font-weight: 600;
+        font-size: 0.95rem;
+}
+
+/* Bottom of the content: Brief description + Button */
+.dest-card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* View Details Button: Horizontal, aligned to the right, will not raise the card */
+.view-detail {
+    display: inline-block;
+    background: #2b9ad9;
+    color: #fff;
+    padding: 0.55rem 0.9rem;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    white-space: nowrap;
+    align-self: flex-end;
+}
+
+/* Small-screen devices: Changed to vertical stacking, with images on top and content below. */
+@media (max-width: 768px) {
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dest-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+        .dest-card img {
+            width: 100%;
+            height: 180px;
+        }
+
+        .dest-card h3 {
+            max-width: 100%;
+            font-size: 1.1rem;
+        }
+
+    .rating {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+        .rating .value {
+            font-size: 0.95rem;
+        }
+
+    .view-detail {
+        width: auto;
+        align-self: flex-start;
+    }
+}
+
+/* Region entrances */
+.region-entrance {
+    padding: 2rem 0;
+}
+
+    .region-entrance h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+    }
+
+.regions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    gap: 1rem;
+}
+
+.region-item {
+    position: relative;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+    .region-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.7); /* Darken image to highlight text */
+    }
+
+    .region-item span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+/* Responsive breakpoint: Tablet (768px and above) */
+@media (min-width: 768px) {
+    .banner-slide {
+        height: 300px; /* Tablet banner height */
+    }
+
+    .banner-text {
+        font-size: 2rem;
+    }
+
+    .destinations-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+    }
+
+    .regions {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet */
+    }
+}
+
+/* Responsive breakpoint: Desktop (992px and above) */
+@media (min-width: 992px) {
+    .banner-slide {
+        height: 400px; /* Desktop banner height */
+    }
+
+    .destinations-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    }
+}

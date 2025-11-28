@@ -1,0 +1,134 @@
+﻿@model Assignment2_TravelWebsite.Models.Destination
+@using System.IO
+@using System.Collections.Generic
+
+@{
+    ViewBag.Title = (Model?.Name ?? "Details of the attraction") + " - Tourist Attractions Website";
+
+    // Read the collection list from the Session (using the same Session as that used by the FavoritesController)
+    var favIds = Session["FavoriteDestIds"] as List<int> ?? new List<int>();
+    var isFavorited = Model != null && favIds.Contains(Model.Id);
+    var favoriteButtonText = isFavorited ? "Favorited" : "Collection attractions";
+}
+
+<a href="@Url.Action("Index", "Destination")" class="back-btn">← Return</a>
+
+@if (Model == null)
+{
+    <div class="error-container">
+        <p>No attraction information found, please return to the list page to select again.</p>
+        <a href="@Url.Action("Index", "Destination")" class="btn">Return</a>
+    </div>
+}
+else
+{
+    <div class="dest-detail">
+        <div class="detail-images">
+            @{
+                var mainFile = string.IsNullOrEmpty(Model.MainImage) ? "placeholder.jpg" : Path.GetFileName(Model.MainImage);
+            }
+            <img src="@Url.Content("~/Content/Images/" + mainFile)" alt="@Model.Name" class="main-img" onerror="this.src='@Url.Content("~/Content/Images/placeholder.jpg")'">
+            <div class="sub-images">
+                @if (Model.SubImages != null)
+                {
+                    foreach (var subImg in Model.SubImages)
+                    {
+                        var subFile = Path.GetFileName(subImg ?? "");
+                        <img src="@Url.Content("~/Content/Images/" + (string.IsNullOrEmpty(subFile) ? "placeholder.jpg" : subFile))" alt="@Model.Name + \" Subgraph\"" onerror="this.src='@Url.Content("~/Content/Images/placeholder.jpg")'">
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="detail-info">
+            <h1>@Model.Name</h1>
+            <div class="info-tags">
+                <span class="region-tag">@Model.Region</span>
+                <span class="type-tag">@string.Join(" / ", Model.Type ?? new List<string>())</span>
+                <span class="rating-tag">Rating @Model.Rating</span>
+            </div>
+
+            <div class="description">
+                <h2>Introduction to Scenic Spots</h2>
+                <p>@Model.Description</p>
+            </div>
+
+            <div class="address">
+                <h3>Address</h3>
+                <p>@Model.Address</p>
+            </div>
+
+            @if (Model.Keywords != null && Model.Keywords.Count > 0)
+            {
+                <div class="keywords">
+                    <h3>Keywords</h3>
+                    <p>@string.Join("、", Model.Keywords)</p>
+                </div>
+            }
+
+        <div class="action-buttons">
+            <!-- data-favorited used for front-end scripts to determine the initial state -->
+            <button id="favorite-btn" class="favorite-btn" data-id="@Model.Id" data-favorited="@(isFavorited.ToString().ToLower())">
+                @favoriteButtonText
+            </button>
+        </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        (function ($) {
+            $(function () {
+                var $btn = $('#favorite-btn');
+                if (!$btn || $btn.length === 0) return;
+
+                // Read the initial state
+                var isFav = $btn.data('favorited') === true || $btn.data('favorited') === 'true';
+
+                // Optional: Set the style based on the initial state
+                if (isFav) {
+                    $btn.addClass('favorited');
+                }
+
+                $btn.on('click', function (e) {
+                    e.preventDefault();
+                    var destId = $(this).data('id') || 0;
+                    if (!destId) {
+                        alert('Invalid attraction ID');
+                        return;
+                    }
+                    var url = '@Url.Action("AddToFavorite", "Favorites")';
+                    $btn.prop('disabled', true).text('Processing...');
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        data: { destId: destId },
+                        success: function (res) {
+                            if (res && res.success) {
+                                alert(res.msg || 'Added to favorites');
+                                $btn.text('Favorited').data('favorited', 'true').addClass('favorited');
+                            } else {
+                                // If the server returns "Already in favorites," sync the button status as well
+                                if (res && res.msg && res.msg.indexOf('In the collection') >= 0) {
+                                    $btn.text('Favorited').data('favorited', 'true').addClass('favorited');
+                                    alert(res.msg);
+                                } else {
+                                    alert(res && res.msg ? res.msg : 'Operation failed');
+                                    $btn.text('Attractions to collect').data('favorited', 'false').removeClass('favorited');
+                                }
+                            }
+                        },
+                        error: function () {
+                            alert('Failed to save, please try again later');
+                            $btn.text(isFav ? 'Favorited' : 'Attractions to collect');
+                        },
+                        complete: function () {
+                            $btn.prop('disabled', false);
+                        }
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
+}

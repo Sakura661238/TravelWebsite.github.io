@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Contact us - Tourist Attractions website";
+}
+<link href="~/Content/about.css" rel="stylesheet" />
+
+<div class="about-hero" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('/Content/Images/contact-banner.jpg');">
+    <h1>Contact Us</h1>
+    <p class="lead">Have a question, collaboration, or content submission? Please contact us via the form below.</p>
+</div>
+
+<div class="about-grid">
+    <div class="page-section">
+        <h2>Contact Form</h2>
+        <form class="contact-form" method="post" action="@Url.Action("Contact", "Home")">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your Name" />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="example@domain.com" />
+
+            <label for="message">Content of message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Please enter your questions or cooperation requirements here"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="page-section">
+        <h2>Other contact information</h2>
+        <p><strong>Email:</strong>contact@travelsite.com</p>
+        <p><strong>Telephone:</strong>+86 10 1234 5678（Working day 9:00 - 18:00）</p>
+        <p><strong>Address:</strong>100 Siyi Road, Chaoyang District, Beijing</p>
+
+        <h3 style="margin-top:16px;">Common response time</h3>
+        <p>We usually respond to business and media-related requests within 1-2 working days. Community issues will be replied to depending on the circumstances.</p>
+    </div>
+</div>

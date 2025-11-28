@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{
+        var metaDesc = ViewBag.MetaDescription as string ?? "Tourist Attractions Network: Select Destinations, Practical Tips and Local Deep Experiences.";
+        var metaKeys = ViewBag.MetaKeywords as string ?? "Tourism, scenic spots, guide, travel, destination";
+        var metaAuthor = ViewBag.MetaAuthor as string ?? "Tourist Attractions Website";
+        var canonical = ViewBag.CanonicalUrl as string ?? (Request?.Url != null ? Request.Url.GetLeftPart(System.UriPartial.Path) : "/");
+    }
+    <meta name="description" content="@metaDesc" />
+    <meta name="keywords" content="@metaKeys" />
+    <meta name="author" content="@metaAuthor" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="@canonical" />
+    <title>@ViewBag.Title - Tourist attraction website</title>
+    <!-- Reference CSS (files in the Content directory) -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/common.css")
+    @Styles.Render("~/Content/index.css")
+    @Styles.Render("~/Content/list.css")
+    @Styles.Render("~/Content/detail.css")
+    @Styles.Render("~/Content/favorites.css")
+    @Styles.Render("~/Content/about.css")
+    @Styles.Render("~/Content/contact.css")
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="@Url.Action("Index", "Home")" class="logo">Tourist Attractions Website</a>
+            <div class="nav-links">
+                <a href="@Url.Action("Index", "Home")" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">Home Page</a>
+                <a href="@Url.Action("Index", "Destination")" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Destination" ? "active" : "")">List of attractions</a>
+                <a href="@Url.Action("Index", "Favorites")" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Favorites" ? "active" : "")">My collection</a>
+                <a href="@Url.Action("About", "Home")">About Us</a>
+                <a href="@Url.Action("Contact", "Home")">Contact Us</a>
+            </div>
+            <!-- Search box (calling the Destination/Search interface) -->
+            <form class="search-box" action="@Url.Action("Index", "Destination")" method="get">
+                <!-- Rename "id" to avoid conflict with the search control on the list page -->
+                <input type="text" id="navbar-search-input" name="search" placeholder="Search..." value="@ViewBag.SearchKey">
+                <button id="navbar-search-btn" class="search-btn" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">© 2025 Travel Attractions Website - All rights reserved</div>
+            <div class="contact">
+                <a href="mailto:contact@travelsite.com">Contact Us</a>
+            </div>
+            <div class="validator-links" style="margin-top:6px;font-size:0.9rem;">
+                <span>Verification:</span>
+                <a href="https://validator.w3.org/nu/?doc=@System.Web.HttpUtility.UrlEncode(Request?.Url?.AbsoluteUri ?? "")" target="_blank" rel="noopener noreferrer">W3C HTML Validation (HTML5)</a>
+                &nbsp;|&nbsp;
+                <a href="https://jigsaw.w3.org/css-validator/validator?uri=@System.Web.HttpUtility.UrlEncode(Request?.Url?.AbsoluteUri ?? "")" target="_blank" rel="noopener noreferrer">W3C CSS Validation (CSS3)</a>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/common.js")
+    @Scripts.Render("~/Scripts/index.js")
+    @Scripts.Render("~/Scripts/list.js")
+    @Scripts.Render("~/Scripts/detail.js")
+    @Scripts.Render("~/Scripts/favorites.js")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

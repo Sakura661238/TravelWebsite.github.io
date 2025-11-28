@@ -1,0 +1,322 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "The Great Wall",
+      "region": "Beijing, China",
+      "type": [ "Historical and Cultural" ],
+      "rating": 5.0,
+      "keywords": [ "World Wonder", "History", "Hiking", "Military Engineering", "Sunrise Viewing", "Cultural Heritage" ],
+      "description": "The Great Wall is an ancient military defense project in China, one of the world's cultural heritage sites, and one of the Seven Wonders of the World. It was first built during the Western Zhou Dynasty, connected and renovated after Qin unified China, and continuously expanded in subsequent dynasties, with a total length of over 20,000 kilometers. The Beijing section of the Great Wall is the most famous, including sections such as Badaling, Mutianyu, and Simatai. Hiking on the Great Wall, you can overlook the rolling mountains and feel the wisdom and perseverance of the ancient ancestors.",
+      "address": "Yanqing District, Beijing, China (Badaling Great Wall), Huairou District (Mutianyu Great Wall), etc.",
+      "mainImage": "images/dest1-main.jpg",
+      "subImages": [
+        "images/dest1-sub1.jpg",
+        "images/dest1-sub2.jpg",
+        "images/dest1-sub3.jpg"
+      ],
+      "listImage": "images/dest1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Eiffel Tower",
+      "region": "Paris, France",
+      "type": [ "Urban Landmark" ],
+      "rating": 4.4,
+      "keywords": [ "Romantic", "Landmark", "Night View", "Architecture", "France" ],
+      "description": "The Eiffel Tower is a symbol of romantic Paris, designed by Gustave Eiffel and built in 1889. With a height of 324 meters, reaching the top allows a 360° view of the entire Paris night scene, making it a must-visit landmark for global tourists. The tower has three floors, each with observation decks and restaurants, and is particularly charming when its lights twinkle at night.",
+      "address": "Champ de Mars, 7th arrondissement, Paris, France",
+      "mainImage": "images/dest2-main.jpg",
+      "subImages": [
+        "images/dest2-sub1.jpg",
+        "images/dest2-sub2.jpg"
+      ],
+      "listImage": "images/dest2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Taj Mahal",
+      "region": "Agra, India",
+      "type": [ "Historical and Cultural" ],
+      "rating": 4.5,
+      "keywords": [ "Love", "Architecture", "World Heritage", "Marble", "India" ],
+      "description": "The Taj Mahal is a white marble mausoleum built by Mughal Emperor Shah Jahan in memory of his wife, a perfect combination of love and architecture. Built in the 17th century, it integrates Hindu and Islamic architectural styles, surrounded by symmetrical gardens and pools, and presents different colors under sunlight at different times.",
+      "address": "Taj Mahal Road, Agra, Uttar Pradesh, India",
+      "mainImage": "images/dest3-main.jpg",
+      "subImages": [
+        "images/dest3-sub1.jpg",
+        "images/dest3-sub2.jpg"
+      ],
+      "listImage": "images/dest3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Great Barrier Reef",
+      "region": "Australia",
+      "type": [ "Natural Scenery" ],
+      "rating": 4.7,
+      "keywords": [ "Diving", "Coral", "Marine Life", "World Heritage", "Australia" ],
+      "description": "The Great Barrier Reef is the world's largest coral reef system, stretching over 2,300 kilometers, consisting of more than 2,900 individual coral reefs and 900-plus islands. It is a paradise for diving enthusiasts, where you can watch colorful corals, tropical fish, sea turtles and other rich marine life up close. It was listed as one of the New Seven Natural Wonders of the World in 2011.",
+      "address": "Northeastern waters of Queensland, Australia",
+      "mainImage": "images/dest4-main.jpg",
+      "subImages": [
+        "images/dest4-sub1.jpg",
+        "images/dest4-sub2.jpg"
+      ],
+      "listImage": "images/dest4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Machu Picchu",
+      "region": "Peru",
+      "type": [ "Historical and Cultural" ],
+      "rating": 4.6,
+      "keywords": [ "Inca Empire", "Ruins", "Hiking", "High Mountains", "Peru" ],
+      "description": "Machu Picchu is a mysterious ruin of the Inca Empire, hidden on a ridge 2,430 meters above sea level in the Andes Mountains, known as the 'Lost City of the Incas'. Built in the 15th century, the entire city is constructed on the mountain, with architecture perfectly integrated with the natural environment. It was listed as a dual World Cultural and Natural Heritage in 1983 and can be reached by hiking the ancient Inca Trail.",
+      "address": "Urubamba Valley, Cusco Region, Peru",
+      "mainImage": "images/dest5-main.jpg",
+      "subImages": [
+        "images/dest5-sub1.jpg",
+        "images/dest5-sub2.jpg"
+      ],
+      "listImage": "images/dest5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Santorini",
+      "region": "Greece",
+      "type": [ "Natural Scenery", "Leisure" ],
+      "rating": 4.6,
+      "keywords": [ "Romantic", "Sunset", "Blue-domed Church", "Aegean Sea", "Greece" ],
+      "description": "Santorini is a volcanic island in the Aegean Sea of Greece, famous for its blue-domed white-walled buildings, azure seawater and stunning sunsets. The town of Oia on the island is known as the 'sunset paradise'. When the sun sets, the white buildings are dyed golden in the afterglow, paired with blue domes, creating a breathtaking scenery, making it the first choice for a romantic vacation.",
+      "address": "Santorini Island, South Aegean Region, Greece",
+      "mainImage": "images/dest6-main.jpg",
+      "subImages": [
+        "images/dest6-sub1.jpg",
+        "images/dest6-sub2.jpg"
+      ],
+      "listImage": "images/dest6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Yellowstone National Park",
+      "region": "United States",
+      "type": [ "Natural Scenery" ],
+      "rating": 4.7,
+      "keywords": [ "Geothermal Wonders", "Wildlife", "Hiking", "National Park", "United States" ],
+      "description": "Yellowstone National Park is the world's first national park, located at the junction of Wyoming, Montana and Idaho in the United States. The park features unique landscapes such as Yellowstone Lake, Grand Canyon, hot springs and geysers, among which Old Faithful is famous for its regular eruptions. It is also home to wildlife such as bears, bison and elk.",
+      "address": "Yellowstone National Park, Wyoming, United States",
+      "mainImage": "images/dest7-main.jpg",
+      "subImages": [
+        "images/dest7-sub1.jpg",
+        "images/dest7-sub2.jpg"
+      ],
+      "listImage": "images/dest7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Colosseum",
+      "region": "Rome, Italy",
+      "type": [ "Historical and Cultural" ],
+      "rating": 4.5,
+      "keywords": [ "Ancient Rome", "History", "Architecture", "Gladiators", "Italy" ],
+      "description": "The Colosseum is an iconic building of the ancient Roman Empire, built between 70-80 AD, capable of holding about 50,000 spectators. It was used for gladiatorial contests and public entertainment, with its architecture adopting arches and concrete structures, demonstrating the exquisite engineering skills of ancient Rome. Although only ruins remain today, its former grandeur can still be felt.",
+      "address": "Foot of Palatine Hill, Rome, Italy",
+      "mainImage": "images/dest8-main.jpg",
+      "subImages": [
+        "images/dest8-sub1.jpg",
+        "images/dest8-sub2.jpg"
+      ],
+      "listImage": "images/dest8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Kiyomizu-dera Temple",
+      "region": "Kyoto, Japan",
+      "type": [ "Historical and Cultural" ],
+      "rating": 4.4,
+      "keywords": [ "Temple", "Cherry Blossoms", "Maple Leaves", "Japanese Culture", "Wooden Architecture" ],
+      "description": "Kiyomizu-dera Temple is one of the oldest Buddhist temples in Japan, built in 778, famous for its wooden terrace built on a cliff. Cherry blossoms are in full bloom in spring, and maple leaves are fiery red in autumn. The stone steps around the temple and traditional machiya (townhouses) form a typical Kyoto style, making it an important attraction to understand Japanese traditional culture.",
+      "address": "1-294 Kiyomizu, Higashiyama Ward, Kyoto, Kyoto Prefecture, Japan",
+      "mainImage": "images/dest9-main.jpg",
+      "subImages": [
+        "images/dest9-sub1.jpg",
+        "images/dest9-sub2.jpg"
+      ],
+      "listImage": "images/dest9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Iguazu Falls",
+      "region": "Brazil/Argentina",
+      "type": [ "Natural Scenery" ],
+      "rating": 4.6,
+      "keywords": [ "Waterfall", "Spectacular", "World Heritage", "Canyon", "South America" ],
+      "description": "Iguazu Falls is the widest waterfall in the world, spanning Brazil and Argentina, composed of 275 independent waterfalls with a total width of 2.7 kilometers. The waterfall is magnificent with swirling mist, among which 'Devil's Throat' is the most spectacular part. You can enjoy the panoramic view from the Brazilian side or feel the shock of the waterfall up close from the Argentine side.",
+      "address": "Border between Paraná State, Brazil and Misiones Province, Argentina",
+      "mainImage": "images/dest10-main.jpg",
+      "subImages": [
+        "images/dest10-sub1.jpg",
+        "images/dest10-sub2.jpg"
+      ],
+      "listImage": "images/dest10.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Prague Square",
+      "region": "Prague, Czech Republic",
+      "type": [ "Urban Scenery" ],
+      "rating": 4.3,
+      "keywords": [ "Fairy-tale", "Architecture", "Square", "Clock Tower", "Czech Republic" ],
+      "description": "Prague Square (officially known as Old Town Square) is the heart of Prague, Czech Republic, surrounded by Gothic, Baroque and Renaissance buildings, including the Old Town Hall, Astronomical Clock and Týn Church. There are often street performers in the square, and the hourly chime performance of the Astronomical Clock attracts a large number of tourists to stop and watch.",
+      "address": "Old Town Square, Prague, Czech Republic",
+      "mainImage": "images/dest11-main.jpg",
+      "subImages": [
+        "images/dest11-sub1.jpg",
+        "images/dest11-sub2.jpg"
+      ],
+      "listImage": "images/dest11.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Serengeti National Park",
+      "region": "Tanzania",
+      "type": [ "Natural Scenery", "Adventure" ],
+      "rating": 4.6,
+      "keywords": [ "Wildlife", "Safari", "Wildebeest Crossing", "African Savanna", "Tanzania" ],
+      "description": "Serengeti National Park is one of the most famous wildlife reserves in Africa, located in northern Tanzania, connected to Kenya's Maasai Mara Reserve. It is the habitat of the 'Big Five' African animals (lion, leopard, elephant, rhinoceros, buffalo). The annual great wildebeest migration (about 1.5 million wildebeests crossing rivers) is a natural wonder.",
+      "address": "Serengeti National Park, Arusha Region, Tanzania",
+      "mainImage": "images/dest12-main.jpg",
+      "subImages": [
+        "images/dest12-sub1.jpg",
+        "images/dest12-sub2.jpg"
+      ],
+      "listImage": "images/dest12.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Sydney Opera House",
+      "region": "Sydney, Australia",
+      "type": [ "Urban Landmark", "Art" ],
+      "rating": 4.5,
+      "keywords": [ "Architecture", "Art Performances", "Harbor", "Australia", "Shell-shaped" ],
+      "description": "The Sydney Opera House is an iconic building in Australia, located on Bennelong Point in Sydney Harbour, designed by Danish architect Jørn Utzon and officially opened in 1973. Its unique shell-shaped roof design makes it one of the most recognizable buildings of the 20th century. It houses multiple theaters and concert halls, often hosting operas, concerts and other art performances.",
+      "address": "Bennelong Point, Sydney, New South Wales, Australia",
+      "mainImage": "images/dest13-main.jpg",
+      "subImages": [
+        "images/dest13-sub1.jpg",
+        "images/dest13-sub2.jpg"
+      ],
+      "listImage": "images/dest13.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Venice",
+      "region": "Italy",
+      "type": [ "Urban Scenery", "Leisure" ],
+      "rating": 4.5,
+      "keywords": [ "Water City", "Gondola", "Romantic", "Bridges", "Italy" ],
+      "description": "Venice is the only city in the world without cars, consisting of 118 small islands and over 400 bridges connected by canals. Taking a gondola through the narrow waterways is the best way to experience Venetian style. St. Mark's Square, St. Mark's Basilica and the Bridge of Sighs are must-visit attractions, and the annual carnival attracts tourists from all over the world.",
+      "address": "Venice, Veneto Region, Italy",
+      "mainImage": "images/dest14-main.jpg",
+      "subImages": [
+        "images/dest14-sub1.jpg",
+        "images/dest14-sub2.jpg"
+      ],
+      "listImage": "images/dest14.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Iceland Northern Lights",
+      "region": "Iceland",
+      "type": [ "Natural Wonders" ],
+      "rating": 5.0,
+      "keywords": [ "Aurora", "Glaciers", "Hot Springs", "Northern Lights", "Iceland" ],
+      "description": "Iceland is one of the best places to watch the Northern Lights. From September to April each year, green and pink auroras dance in the night sky, paired with unique landforms such as glaciers, volcanoes and hot springs, like an alien world. In addition to the auroras, Iceland also has attractions such as the Blue Lagoon, Golden Circle and Jökulsárlón Glacier Lagoon, suitable for in-depth exploration of natural wonders.",
+      "address": "Throughout Iceland (recommended in the north, east and Golden Circle areas)",
+      "mainImage": "images/dest15-main.jpg",
+      "subImages": [
+        "images/dest15-sub1.jpg",
+        "images/dest15-sub2.jpg"
+      ],
+      "listImage": "images/dest15.jpg"
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "name": "Beijing, China",
+      "intro": "Capital of China, a famous historical and cultural city with numerous world heritage sites"
+    },
+    {
+      "id": 2,
+      "name": "Paris, France",
+      "intro": "Capital of France, a city of romance and art, home to iconic buildings like the Eiffel Tower"
+    },
+    {
+      "id": 3,
+      "name": "Agra, India",
+      "intro": "A city in Uttar Pradesh, India, world-famous for the Taj Mahal"
+    },
+    {
+      "id": 4,
+      "name": "Australia",
+      "intro": "A country in the Southern Hemisphere, with famous attractions such as the Great Barrier Reef and Sydney Opera House"
+    },
+    {
+      "id": 5,
+      "name": "Peru",
+      "intro": "A country in South America, the birthplace of Inca civilization and home to Machu Picchu"
+    },
+    {
+      "id": 6,
+      "name": "Greece",
+      "intro": "A country in southeastern Europe, with islands in the Aegean Sea famous for their romantic scenery"
+    },
+    {
+      "id": 7,
+      "name": "United States",
+      "intro": "A country in North America, where Yellowstone National Park is the world's first national park"
+    },
+    {
+      "id": 8,
+      "name": "Rome, Italy",
+      "intro": "Capital of Italy, the core of ancient Roman civilization, with ruins like the Colosseum"
+    },
+    {
+      "id": 9,
+      "name": "Kyoto, Japan",
+      "intro": "Ancient capital of Japan, preserving a large number of traditional temples and gardens"
+    },
+    {
+      "id": 10,
+      "name": "Brazil/Argentina",
+      "intro": "Border area of two South American countries, where Iguazu Falls spans both nations"
+    },
+    {
+      "id": 11,
+      "name": "Prague, Czech Republic",
+      "intro": "Capital of the Czech Republic, famous for its fairy-tale-like architecture and squares"
+    },
+    {
+      "id": 12,
+      "name": "Tanzania",
+      "intro": "A country in eastern Africa, where Serengeti National Park is a paradise for wildlife"
+    },
+    {
+      "id": 13,
+      "name": "Sydney, Australia",
+      "intro": "Largest city in Australia, with the Sydney Opera House as its urban landmark"
+    },
+    {
+      "id": 14,
+      "name": "Italy",
+      "intro": "A country in southern Europe, with cities like Venice and Rome full of history and art"
+    },
+    {
+      "id": 15,
+      "name": "Iceland",
+      "intro": "A Nordic country, famous for natural wonders such as auroras and glaciers"
+    }
+  ]
+}

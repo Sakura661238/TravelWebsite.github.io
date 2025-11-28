@@ -1,0 +1,167 @@
+﻿﻿ /* Basic style reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Header banner style */
+.about-hero {
+    width: 100%;
+    height: 40vh;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+    .about-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .about-hero .lead {
+        font-size: 1.25rem;
+        max-width: 700px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+/* Grid layout container */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Common page section styles */
+.page-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+    .page-section h2 {
+        color: #2c3e50;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3498db;
+        display: inline-block;
+    }
+
+/* Contact form styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+    .contact-form label {
+        font-weight: 500;
+        color: #444;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+    .contact-form textarea {
+        resize: vertical; /* Allow vertical resizing */
+        min-height: 150px;
+    }
+
+    .contact-form button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 1rem 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start; /* Button width fits content */
+    }
+
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+
+/* Contact information area styles */
+.page-section p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+.page-section strong {
+    color: #2c3e50;
+}
+
+.page-section h3 {
+    color: #3498db;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Responsive adaptation */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-hero .lead {
+        font-size: 1.1rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+        gap: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .page-section {
+        padding: 1.8rem;
+    }
+
+        .page-section h2 {
+            font-size: 1.5rem;
+        }
+
+    .contact-form button {
+        width: 100%;
+        align-self: stretch;
+    }
+}
